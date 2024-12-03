@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des utilisateurs</title>
+</head>
+<body>
+    <h1>Liste des utilisateurs</h1>
+    <a href="{% url 'ajouter_utilisateur' %}">Ajouter un utilisateur</a>
+    <ul>
+        {% for utilisateur in utilisateurs %}
+            <li>
+                {{ utilisateur.nom }} {{ utilisateur.prenom }} - {{ utilisateur.email }} - {{ utilisateur.age }} ans - {{ utilisateur.sexe }}
+                <a href="{% url 'modifier_utilisateur' utilisateur.id %}">Modifier</a>
+                <a href="{% url 'supprimer_utilisateur' utilisateur.id %}">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
