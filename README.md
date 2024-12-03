@@ -110,7 +110,7 @@ python manage.py test
 Les contributions sont les bienvenues ! Si vous avez des suggestions d'amélioration ou souhaitez corriger des bugs, n'hésitez pas à soumettre une pull request.
 
 ## Auteurs
-- [Votre nom](https://github.com/fabioramefiarison)
+- [Fabio](https://github.com/fabioramefiarison)
 
 
 
