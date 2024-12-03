@@ -1,0 +1,92 @@
+/* styles.css */
+body {
+   font-family: Arial, sans-serif;
+   background-color: #f4f4f4;
+   margin: 0;
+   padding: 0;
+}
+
+h1 {
+   color: #333;
+   text-align: center;
+   margin-top: 20px;
+}
+
+/* Style pour les boutons, cohérent avec l'ajout */
+button {
+   background-color: #5cb85c;
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   margin: 10px 0;
+   display: inline-block;
+}
+
+button:hover {
+   background-color: #4cae4c;
+}
+
+/* Styles de la liste des utilisateurs */
+.container {
+   width: 80%;
+   max-width: 1000px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: #fff;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+}
+
+ul {
+   list-style-type: none;
+   padding: 0;
+}
+
+ul li {
+   background-color: #fff;
+   padding: 15px;
+   margin-bottom: 10px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li:hover {
+   background-color: #f9f9f9;
+}
+
+ul li a {
+   background-color: #0275d8;
+   color: white;
+   padding: 5px 10px;
+   border-radius: 4px;
+   text-decoration: none !;
+}
+
+ul li a:hover {
+   background-color: #025aa5;
+}
+
+/* Modifier et supprimer les boutons */
+ul li a.modify {
+   background-color: #f0ad4e;
+   margin-right: 10px;
+}
+
+ul li a.modify:hover {
+   background-color: #ec971f;
+}
+
+ul li a.delete {
+   background-color: #d9534f;
+}
+
+ul li a.delete:hover {
+   background-color: #c9302c;
+}
+

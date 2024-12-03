@@ -2,9 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Utilisateur
 from .forms import UtilisateurForm
 
+from django.shortcuts import render
+from .models import Utilisateur
+
 def liste_utilisateurs(request):
+    recherche = request.GET.get('recherche', '')  # Récupère la valeur du champ de recherche
     utilisateurs = Utilisateur.objects.all()
-    return render(request, 'utilisateurs/liste.html', {'utilisateurs': utilisateurs})
+
+    if recherche:
+        utilisateurs = utilisateurs.filter(nom__icontains=recherche)  # Filtre les utilisateurs par le nom
+
+    return render(request, 'utilisateurs/liste.html', {'utilisateurs': utilisateurs, 'recherche': recherche})
 
 def ajouter_utilisateur(request):
     if request.method == 'POST':

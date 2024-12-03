@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des utilisateurs</title>
+    <!-- Charger les fichiers statiques -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Liste des utilisateurs</h1>
-    <a href="{% url 'ajouter_utilisateur' %}">Ajouter un utilisateur</a>
-    <ul>
-        {% for utilisateur in utilisateurs %}
-            <li>
-                {{ utilisateur.nom }} {{ utilisateur.prenom }} - {{ utilisateur.email }} - {{ utilisateur.age }} ans - {{ utilisateur.sexe }}
-                <a href="{% url 'modifier_utilisateur' utilisateur.id %}">Modifier</a>
-                <a href="{% url 'supprimer_utilisateur' utilisateur.id %}">Supprimer</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Liste des utilisateurs</h1>
+        
+        <!-- Formulaire de recherche -->
+        <form method="GET" action="" class="search-form">
+            <input type="text" name="recherche" placeholder="Rechercher un utilisateur..." value="{{ recherche }}" id="search-bar">
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <a href="{% url 'ajouter_utilisateur' %}">
+            <button class="add-user-btn">Ajouter un utilisateur</button>
+        </a>
+
+        <ul class="utilisateurs-list">
+            {% for utilisateur in utilisateurs %}
+                <li class="utilisateur-item">
+                    <span>{{ utilisateur.nom }} {{ utilisateur.prenom }} - {{ utilisateur.email }} - {{ utilisateur.age }} ans - {{ utilisateur.sexe }}</span>
+                    <div class="user-actions">
+                        <a href="{% url 'modifier_utilisateur' utilisateur.id %}" class="modify">Modifier</a>
+                        <a href="{% url 'supprimer_utilisateur' utilisateur.id %}" class="delete">Supprimer</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li>Aucun utilisateur trouvé.</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
